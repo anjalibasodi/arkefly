@@ -1,0 +1,8 @@
+{
+	"host_map": [
+		"$.arkefly.nl => www.arkefly.nl",
+		"$.arkefly.nl => arkefly.nl",
+		"$.werkenbijarkefly.nl => werkenbijarkefly.nl",
+		"$.chat.arkefly.nl => chat.arkefly.nl"
+	]
+}
