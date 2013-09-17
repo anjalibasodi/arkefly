@@ -16,7 +16,7 @@ $("/html") {
   # Late load all the images on the site
   # lateload()
   
-
+	remove_all_styles()
 
 
   add_assets()

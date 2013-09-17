@@ -1,5 +1,5 @@
-# $('./body') {
-#   insert_top("header", class: "_header") {
-#     Move stuff here
-#   }
-# }
+ $('./body') {
+   insert_top("div", class: "_header _keep") {
+     move_here("//div[@class='logo']")
+   }
+ }

@@ -36,4 +36,15 @@ input[type="number"]::-webkit-outer-spin-button {
   display: none;
 }
 
+div[data-ur-carousel-component="view_container"] {
+  width: 100%;
+  overflow-x: hidden;
+}
+div[data-ur-carousel-component="scroll_container"] > * {
+  display: inline-block;
+  float: left;
+}
+div[data-ur-carousel-component="button"][data-ur-state="disabled"] {
+  opacity: 0.3;
+}
 
