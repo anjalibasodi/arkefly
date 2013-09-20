@@ -11,7 +11,7 @@ html {
 
 body {
   -webkit-text-size-adjust: none;
-  background: #fff;
+  background: #fff url("../../../images/main-bg1.jpg") no-repeat scroll center top;
   color: #333;
   font-family: "Helvetica Neue", Helvetica, Verdana;
   position: relative;
@@ -27,24 +27,130 @@ a {
 a, a:link {
   -webkit-tap-highlight-color: rgba(225, 244, 204, 0.5);
 }
+ul li{
+	list-style-type: none;
+}
 
 img {
   max-width: 100%;
 }
 
-input[type="number"]::-webkit-outer-spin-button {
+// Essential CSS for the Uranium widgets to work. For more
+// information, see http://uraniumjs.com
+
+// Accordion
+[data-ur-tabs-component="content"] {
   display: none;
+  &[data-ur-state="enabled"] {
+    display: block;
+  }
 }
 
-div[data-ur-carousel-component="view_container"] {
-  width: 100%;
-  overflow-x: hidden;
+[data-ur-toggler-component="content"] {
+  display: none;
+  &[data-ur-state="enabled"] {
+    display: block;
+  }
 }
-div[data-ur-carousel-component="scroll_container"] > * {
-  display: inline-block;
-  float: left;
+
+// Carousel
+div[data-ur-carousel-component='view_container'] {
+  width:100%;
+  overflow: hidden;
+  height: 320px;
+  position: relative;
+}
+*[data-ur-carousel-component="scroll_container"] {
+  display:block;
+  clear:both;
+  margin-left:0px;
+}
+*[data-ur-carousel-component="scroll_container"] > * {
+  display:inline-block;
+  float:left;
+}
+
+div[data-ur-carousel-component="button"]{
+	display: inline-block;
 }
 div[data-ur-carousel-component="button"][data-ur-state="disabled"] {
-  opacity: 0.3;
+  opacity: .3;
+}
+div[data-ur-carousel-button-type="prev"] {
+  float:left;
+  margin: 5px;
+  opacity: 0.6;
+  @extend .sprites-chevron-left;
+}
+div[data-ur-carousel-button-type="next"] {
+  float:right;
+  margin: 5px;
+  opacity: 0.6;
+  @extend .sprites-chevron-right;
+}
+span[data-ur-carousel-component="count"] {
+  text-align:center;
+  width: 85%;
+  clear:both;
+  margin-top: 7px;
+  display: inline-block;
+}
+a[data-ur-carousel-component="item"] {
+  img {
+    width:320px;
+    height:214px;
+  }
 }
 
+/* CSS for tabs */
+*[data-ur-set="tabs"] {
+      *[data-ur-tabs-component='button'] {
+		color: black; 
+        opacity: 0.5;
+		background-color: #E7F1F9;
+		display: inline-block;
+		border: 1px solid black;
+		border-top-left-radius: 5px 5px;
+		border-top-right-radius: 5px 5px;
+		bottom: -1px;
+		margin: 0px 5px;
+		padding: 2px 5px 2px 5px;
+		position: relative;
+		
+      }
+      *[data-ur-tabs-component='button'][data-ur-state='enabled'] {
+        opacity: 1.0;
+		border-bottom: none;
+		bottom: -2px;
+      }
+      *[data-ur-tabs-component='content'] {
+		color: black;
+		background-color: white;
+        display: none;
+		border-radius: 5px;
+      }
+      *[data-ur-tabs-component='content'][data-ur-state='enabled'] {
+        display: block;
+		background-color: white;
+		border: 1px solid black;
+		padding: 20px;
+		margin: 0px;
+		background-image: -webkit-linear-gradient(top, #E7F1F9, #fff);
+      }
+    }
+.option{
+	float: left;
+	padding: 3px;
+}
+
+.step{
+	clear: both;
+}
+
+#flight-search-form{
+	background-color: #D7EDF7
+}
+
+h3{
+	-webkit-margin-before: 0em;
+}

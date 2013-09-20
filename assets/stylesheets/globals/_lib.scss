@@ -1,0 +1,106 @@
+// Background Color
+$body_background: white;
+// Font size
+$font_size:       12px;
+$h2_size:         15px;
+// Font colors
+$text_color:      #000;       // black
+$link_color:      #afadad;    // light gray
+// colors
+$color1: #FFFFFF; // white
+$color2: #3500ED; // link blue 
+$color3: #2C2C2C; // text gray
+$color4: #F2F3F5; // header gradient gray
+
+$spacing: 10px;
+
+$border_color1: #c1bfbf;
+$border1:       1px solid $border_color1;
+$border_color3: #999;
+$border3:       1px solid $border_color3;
+
+//gray bar color
+@mixin grad1 {
+  @include background(linear-gradient(#f7f7f7, #eaeaea 50%, #e0e0e0 51%, #d6d6d6));
+  background-color: #eaeaea; /* Old browsers */
+}
+
+// Bars and Accordions
+@mixin bar_inner_base {
+  display: block;
+  font-size: $h2_size;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  padding: 10px;
+  padding-right: 50px;
+}
+
+// link bar
+@mixin bar1 {
+  @include bar_inner_base;
+  background: $color1;
+  border-top: $border1;
+  color: $color3;
+  text-decoration: none;
+  a {
+    display: block;
+    color: $color2;
+    padding: $spacing;
+  }
+  > .arrow {
+    @include sprites-chevron-right;
+    position: absolute;
+    right: 9px;
+    font-size: 32px;
+    content: "";
+    padding: 0;
+    opacity: 0.6;
+  }
+}
+// accordion bar
+@mixin bar2 {
+  @include bar_inner_base;
+  background: $color4;
+  border-top: $border1;
+  height: 20px;
+  color: $color3;
+  text-decoration: none;
+  a {
+    display: block;
+    color: $color2;
+    padding: $spacing;
+  }
+
+  /* accordion closed */
+  &[data-ur-state="disabled"] {
+    &:after {
+      position: absolute;
+      right: 5px;
+      font-size: 32px;
+      margin-top: -25px;
+      content: "";
+      @include sprites-gray_plus;
+    }
+  }
+
+  /* accordion open */
+  &[data-ur-state="enabled"] {
+    &:after {
+      position: absolute;
+      right: 5px;
+      font-size: 32px;
+      margin-top: -25px;
+      content: "";
+      @include sprites-gray_minus;
+    }
+  }
+}
+
+.mw_bar1 {
+  @include bar1;
+}
+
+.mw_bar2 {
+  @include bar2;
+}

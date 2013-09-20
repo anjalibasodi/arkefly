@@ -10,11 +10,14 @@ $("./body") {
 		$("./div[@class='cnt-nav']") {
 			attribute("data-ur-set", "toggler")
 
-			insert_top("div","MENU", class: "_menu _keep") {
+			insert_top("div","MENU", class: "_menu _keep mw_bar2") {
 				attribute(" data-ur-toggler-component","button")
 			}
 			$("./ul"){
 				attribute("data-ur-toggler-component","content")
+				$("./li/a"){
+					add_class("mw_bar1")
+				}
 			}
 			move_to("/html/body/div[contains(@class, '_header')]", "after")
 		}
@@ -28,13 +31,57 @@ $("./body") {
 	$("./div[@class='page-back']") {
 		remove(".//section[@class='marketing-banner-top']")
 		
-		remove(".//section[@class='blockright']")
+		$(".//section[@class='blockright']") {
+		
+		
+			$("./div[@id='marketing-carrousel']") {
+		
+				attribute("data-ur-set", "carousel")
+				attribute("data-ur-carousel-component", "view_container")
+				attribute("data-ur-id", "MyFirstCarousel")
+				
+				$("./div[@class='photo-bg']") {
+					attribute(" data-ur-carousel-component","scroll_container")
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ticketsale.jpg")
+						attribute("alt","1")
+					}
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/betaalbaar-usa.jpg")
+						attribute("alt","2")
+					}
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ervaar-antillen.jpg")
+						attribute("alt","3")
+					}
+				}
+				insert_top("div","next") {
+					attribute(" data-ur-carousel-component","button")
+					attribute(" data-ur-carousel-button-type","next")
+				}
+				insert_top("div","prev") {
+					attribute(" data-ur-carousel-component","button")
+					attribute(" data-ur-carousel-button-type","prev")
+				}
+				insert_top("span","-- count --") {
+					attribute(" data-ur-carousel-component","count")
+				}
+			}
+			remove("./div[@class='top-offers']")
+
+		}
 		
 		$(".//section[@class='home-searchcontrol']") {
 			attribute("data-ur-set", "toggler")
 
 			$("./div[@class='top']") {
 				attribute(" data-ur-toggler-component","button")
+				$(".//h3"){
+					add_class("mw_bar2")
+				}
 			}
 			$("./div[@class='middle']"){
 				attribute("data-ur-toggler-component","content")
@@ -89,42 +136,9 @@ $("./body") {
 			
 			
 		}
-		$(".//section[@class='home-destinations']") {
-			$("./section[@class='hp-destinations']") {
-				attribute("data-ur-set", "toggler")
-				
-				$("./h3") {
-					attribute(" data-ur-toggler-component","button")
-				}
-				$("./a"){
-					attribute("data-ur-toggler-component","content")
-				}
-			}
-			
-		}
-		$(".//section[@class='home-newsletter']") {
-			$("./section[@class='hp-newsletter']") {
-				attribute("data-ur-set", "toggler")
-				
-				$("./h3") {
-					attribute(" data-ur-toggler-component","button")
-				}
-				insert_at("bottom","div", class: "_newsletter") {
-					attribute(" data-ur-toggler-component","content")
-					insert_top("div", class: "_in-newsletter") {
-						
-					}
-				}
-				$("./a"){
-					move_to("/html/body//div[contains(@class, '_in-newsletter')]", "after")
-				}
-				$("./p"){
-					move_to("/html/body//div[contains(@class, '_in-newsletter')]", "after")
-				}
-				remove("./span")
-			}
-			
-		}
+		remove(".//section[@class='home-destinations']")
+		remove(".//section[@class='home-newsletter']")
+		
 	}
 
   }

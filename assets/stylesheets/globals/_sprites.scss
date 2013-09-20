@@ -1,0 +1,123 @@
+$sprites-url: url("/_moovweb_local_assets_/images/sprites.png");
+
+$sprites-width: 71px;
+$sprites-height: 222px;
+
+$sprites-chevron-left-x: 0px;
+$sprites-chevron-left-y: 0px;
+$sprites-chevron-left-width: 12px;
+$sprites-chevron-left-height: 18px;
+
+$sprites-chevron-right-x: 0px;
+$sprites-chevron-right-y: -19px;
+$sprites-chevron-right-width: 12px;
+$sprites-chevron-right-height: 18px;
+
+$sprites-gray_minus-x: 0px;
+$sprites-gray_minus-y: -38px;
+$sprites-gray_minus-width: 71px;
+$sprites-gray_minus-height: 36px;
+
+$sprites-gray_plus-x: 0px;
+$sprites-gray_plus-y: -75px;
+$sprites-gray_plus-width: 71px;
+$sprites-gray_plus-height: 36px;
+
+$sprites-gray_r-x: 0px;
+$sprites-gray_r-y: -112px;
+$sprites-gray_r-width: 71px;
+$sprites-gray_r-height: 36px;
+
+$sprites-light_gray_l-x: 0px;
+$sprites-light_gray_l-y: -149px;
+$sprites-light_gray_l-width: 71px;
+$sprites-light_gray_l-height: 36px;
+
+$sprites-light_gray_r-x: 0px;
+$sprites-light_gray_r-y: -186px;
+$sprites-light_gray_r-width: 71px;
+$sprites-light_gray_r-height: 36px;
+
+@mixin sprites-chevron-left() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px 0px;
+  width: 12px;
+  height: 18px;
+}
+
+@mixin sprites-chevron-right() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -19px;
+  width: 12px;
+  height: 18px;
+}
+
+@mixin sprites-gray_minus() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -38px;
+  width: 71px;
+  height: 36px;
+}
+
+@mixin sprites-gray_plus() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -75px;
+  width: 71px;
+  height: 36px;
+}
+
+@mixin sprites-gray_r() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -112px;
+  width: 71px;
+  height: 36px;
+}
+
+@mixin sprites-light_gray_l() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -149px;
+  width: 71px;
+  height: 36px;
+}
+
+@mixin sprites-light_gray_r() {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -186px;
+  width: 71px;
+  height: 36px;
+}
+
+.sprites-chevron-left {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px 0px;
+  width: 12px;
+  height: 18px;
+}
+
+.sprites-chevron-right {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -19px;
+  width: 12px;
+  height: 18px;
+}
+
+.sprites-gray_minus {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -38px;
+  width: 71px;
+  height: 36px;
+}
+
+.sprites-gray_plus {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -75px;
+  width: 71px;
+  height: 36px;
+}
+
+.sprites-gray_r {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -112px;
+  width: 71px;
+  height: 36px;
+}
+
+.sprites-light_gray_l {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -149px;
+  width: 71px;
+  height: 36px;
+}
+
+.sprites-light_gray_r {
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -186px;
+  width: 71px;
+  height: 36px;
+}
