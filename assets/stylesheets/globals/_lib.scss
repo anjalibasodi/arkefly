@@ -126,16 +126,7 @@ $border4:       1px solid $color5;
     padding: $spacing;
   }
   
-  > .arrow {
-    @include sprites-chevron-right;
-    position: absolute;
-    right: 9px;
-    font-size: 32px;
-    content: "";
-    padding: 0;
-    opacity: 0.6;
-  }
-  
+
   
 }
 // accordion bar
