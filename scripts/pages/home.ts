@@ -1,74 +1,85 @@
 # Place holder/example file
 # Place holder/example file
+$("/html"){
+	remove_all_styles()
+}
+
 $("./body") {
+	
   # Add a class to the body for page-specific styling
   add_class("_home")
-  # Move items we want to keep on the page to the body, out of the _hide divs
-  $("./nav[@class='main-nav']") {
-        add_class("_keep")
-		       
-		$("./div[@class='cnt-nav']") {
-			attribute("data-ur-set", "toggler")
-
-			insert_top("div","MENU", class: "_menu _keep mw_bar2") {
-				attribute(" data-ur-toggler-component","button")
-			}
-			$("./ul"){
-				attribute("data-ur-toggler-component","content")
-				$("./li/a"){
-					add_class("mw_bar1")
-				}
-			}
-			move_to("/html/body/div[contains(@class, '_header')]", "after")
-		}
-		name("div")
-		
-    }
+  
+	
+	# Remove services and oneStatTag
+	remove("./section[@class='home-services']")
+	remove("./div[@id='OneStatTag']")
+	remove(".//div[@class='searchcontrol-menu']/div[@class='divider']")
+	remove(".//div[@class='searchcontrol-menu']/div[@class='corner']")
+	
 	# $(".//div[@class= 'cnt-nav']") {
 	#	      ur_toggler("./div","./ul")
 	#	}
-	remove("./div[@id='CookieBar']")
+	
+	
+	
 	$("./div[@class='page-back']") {
 		remove(".//section[@class='marketing-banner-top']")
-		
+		remove(".//section[@class='home-cco']")
 		$(".//section[@class='blockright']") {
-		
-		
+			
+			remove(".//div[@class='menu']")
+			remove(".//div[@class='menu-bg']")
+			
+			#Home gallery navigations
+			insert_bottom("div") {
+				insert_top("a"){
+					attribute("onclick","mySwipe.prev()")
+				}
+				insert_bottom("a"){
+					attribute("onclick","mySwipe.next()")
+				}
+				attribute("class","gallerynav")
+			}
+					
+					
 			$("./div[@id='marketing-carrousel']") {
-		
-				attribute("data-ur-set", "carousel")
-				attribute("data-ur-carousel-component", "view_container")
-				attribute("data-ur-id", "MyFirstCarousel")
+				
+				remove_class("carousel")
+				attribute("id") {
+					value() {
+						set("mySwipe")
+					}
+				}
+				
+				#Setting up the width of banner container equals to the image width
+				attribute("style","max-width: 500px; margin:0 auto")
+				attribute("class","swipe")
 				
 				$("./div[@class='photo-bg']") {
-					attribute(" data-ur-carousel-component","scroll_container")
-					insert_top("img"){
-						attribute("data-ur-carousel-component","item")
-						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ticketsale.jpg")
-						attribute("alt","1")
+					remove("./a")
+					attribute("class") {
+						value() {
+							set("swipe-wrap")
+						}
 					}
-					insert_top("img"){
-						attribute("data-ur-carousel-component","item")
-						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/betaalbaar-usa.jpg")
-						attribute("alt","2")
+					insert_top("div") {
+						insert_top("img"){
+							attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ticketsale.jpg")
+						}
 					}
-					insert_top("img"){
-						attribute("data-ur-carousel-component","item")
-						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ervaar-antillen.jpg")
-						attribute("alt","3")
+					insert_top("div") {
+						insert_top("img"){
+							attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/betaalbaar-usa.jpg")
+						}
+					}
+					
+					insert_top("div") {
+						insert_top("img"){
+							attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ervaar-antillen.jpg")
+						}
 					}
 				}
-				insert_top("div","next") {
-					attribute(" data-ur-carousel-component","button")
-					attribute(" data-ur-carousel-button-type","next")
-				}
-				insert_top("div","prev") {
-					attribute(" data-ur-carousel-component","button")
-					attribute(" data-ur-carousel-button-type","prev")
-				}
-				insert_top("span","-- count --") {
-					attribute(" data-ur-carousel-component","count")
-				}
+
 			}
 			remove("./div[@class='top-offers']")
 
@@ -76,7 +87,26 @@ $("./body") {
 		
 		$(".//section[@class='home-searchcontrol']") {
 			attribute("data-ur-set", "toggler")
+			
+			#Form Styling
+			$(".//form[@id='flight-search-form']") {
+				$(".//p") {
+					add_class("mw_formheader")
+				}
+			}
+			remove(".//div[@class='icon']")
+			remove(".//span[@class='info']")
+			remove(".//div[@class='travelclass']/span")
+			$(".//div[@class='btn-grey']") {
+				remove(".//span[@class='btn-left']")
+				remove(".//span[@class='btn-right']")
+			}
+			
+			$(".//select[@id='ToClass']") {
+				attribute("placeholder","Zitcomfort en service")
+			}
 
+			
 			$("./div[@class='top']") {
 				attribute(" data-ur-toggler-component","button")
 				$(".//h3"){
@@ -87,58 +117,12 @@ $("./body") {
 				attribute("data-ur-toggler-component","content")
 			}
 		}
-		$(".//section[@class='hp-services']") {
-			$("./div[@id='tabs']") {
-				attribute("data-ur-set", "tabs")
-				 #data-ur-tabs-component='button' data-ur-tab-id='first' data-ur-state='enabled
-				$("./div[@class='top']") {
-					
-					$("./ul/li[2]") {
-
-						$(".//div[@class='tab-middle']") {
-							attribute("data-ur-tabs-component","button")
-							attribute("data-ur-tab-id","second")
-							
-							move_to("/html/body//div[contains(@class, 'top')]", "after")
-
-							name("span")
-							
-						}
-					}
-					$("./ul/li[1]") {
-
-						$(".//div[@class='tab-middle']") {
-							attribute("data-ur-tabs-component","button")
-							attribute("data-ur-tab-id","first")
-							attribute("data-ur-state","enabled")
-							
-							move_to("/html/body//div[contains(@class, 'top')]", "after")
-
-							name("span")
-							
-						}
-					}
-				}
-				#data-ur-tabs-component='content' data-ur-tab-id='first' data-ur-state='enabled'
-				$("./div[@id='tabs-1']") {
-					attribute("data-ur-tabs-component","content")
-					attribute("data-ur-tab-id","first")
-					attribute("data-ur-state","enabled")
-							
-				}
-				$("./div[@id='tabs-2']") {
-					attribute("data-ur-tabs-component","content")
-					attribute("data-ur-tab-id","second")
-							
-				}
-				remove("./div[@class='top']")
-			}
-			
-			
-		}
+		
+		remove(".//section[@class='hp-services']")
 		remove(".//section[@class='home-destinations']")
 		remove(".//section[@class='home-newsletter']")
 		
 	}
+	
 
   }

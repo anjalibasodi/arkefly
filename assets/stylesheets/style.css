@@ -1,0 +1,21 @@
+// Styles for Responsive Banner
+#mySwipe div {
+	display:block;
+	padding:0px 0px;
+}
+
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	.swipe-wrap {
+		overflow: hidden;
+		position: relative;
+		& > div {
+		  float:left;
+		  width:100%;
+		  position: relative;
+		}
+	}
+}
+// Styles for Responsive Banner Ends

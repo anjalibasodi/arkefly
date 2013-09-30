@@ -1,0 +1,61 @@
+// Every page should have a class on the body
+// Scope that in each file at the start
+
+.text-shadow-small {
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 10px 5px 10px;
+	display:block;
+	color:#FF7429;
+	
+}
+.destinations-block {
+	padding:0px 0px;
+	.text-shadow-small {
+		padding: 5px 10px;
+		font-size:15px;
+	}
+	.destination {
+		font-size:13px;
+		padding:5px 10px;
+		display:block;
+		color:$color3;
+		border-bottom: $border4;
+		position: relative;
+		
+		&:hover {
+			background: #F2F2F2;
+		}
+		
+		h2 {
+			display: inline-block;
+			line-height: 2em;
+		}
+		
+		&>span {
+			display:inline-block;
+			font-size:0px;
+			background: #F2F2F2;
+			padding:5px 0px;
+			position: absolute;
+			right: 10px;
+			width:30px;
+			text-align: center;
+			@include borderRadius;
+		}
+		
+		span span {
+			font-size:13px;
+			
+		}
+		
+		&:last-of-type {
+			border-bottom:none;
+			text-decoration: underline;
+		}
+		
+	}
+	
+	
+	
+}

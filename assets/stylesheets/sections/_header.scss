@@ -1,3 +1,49 @@
-header._header {
-  
+header.mw_header {
+	width: auto;
+	padding:10px 0px;
 }
+
+div.main-nav {
+	@include grad4;
+	border-bottom:1px solid #CB4F00;
+	height: 44px;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	z-index: 10;
+	
+	h1 {
+		@include pageTitle;
+	}
+}
+
+.page_title {
+	@include pageTitle;
+	position:absolute;
+	top:101px;
+	z-index:11;
+	display:inline;
+}
+
+._menu	{
+    color: #FFFFFF;
+	position:absolute;
+    display: block;
+    height: 44px;
+	width:44px;
+    padding: 0;
+    text-decoration: none;
+	background: image-url("list.png") no-repeat 15px center;
+	right:0px;
+	top: 0px;
+	z-index:9999;
+}
+
+.cnt-nav ul {
+	background: #fff;
+	margin:0px -10px;
+	position:relative;
+	top:44px;
+	border-bottom: 1px solid #000;
+}
+

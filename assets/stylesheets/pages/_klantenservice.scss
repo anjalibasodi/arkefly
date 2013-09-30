@@ -1,0 +1,97 @@
+// Every page should have a class on the body
+// Scope that in each file at the start
+#faqpage {
+	#faq-search {
+		position:relative;
+		padding:20px 10px 10px 10px;
+		
+		input {
+			@include inputStyle;
+			width: 98%;
+			padding:6px 1%;
+		}
+		
+		#searchquestion-submit {
+			position:absolute;
+			top:20px; // Parent top padding
+			right:2%; // Parent right padding
+			
+			.button {
+				background: image-url("search_black.png") no-repeat  center;
+				height: 30px;
+				width: 30px;
+				display:block;
+				border-left: 1px solid #CCCCCC;
+			}
+		}
+	}
+	
+	#divSolutionText {
+		padding:10px 10px;
+		line-height:19px;
+		color:#333;
+		strong {
+			padding:0px 0px 10px 0px;
+			font-weight:bold;
+			display: block;
+		}
+	}
+	
+	#faq-details {
+		padding:10px;
+		.faqcontent {
+			span a {
+				background: #E9E9E9;
+				padding: 12px 10px; 
+				display:block;
+				color:#333;
+				font-size:13px;
+				margin-bottom:1px;
+			}
+			
+			span[data-ur-state="enabled"] {
+				a {
+					background: #E9E9E9 image-url("minus.png") no-repeat 10px center;
+					padding: 12px 10px 12px 30px; 
+				}
+			}
+			
+			span[data-ur-state="disabled"] {
+				a {
+					background: #E9E9E9 image-url("plus.png") no-repeat 10px center;
+					padding: 12px 10px 12px 30px;
+				}
+			}
+			
+			ul {
+				border:1px solid $color4;
+				margin-bottom:10px;
+				li {
+					border-bottom: 1px dotted $color4;
+				}
+				a {
+					background: none;
+					padding:10px;
+					display:block;
+					color:#346DAD;
+				}
+			}
+			
+			
+		}
+	}
+	
+	#faq-footer-left {
+		text-align:right;
+		a.faqcontent-ftr-link {
+			@include btnstyle;
+			@include borderRadius;
+			display:inline-block;
+			margin:10px;
+			padding:5px 10px;
+			font-weight: normal;
+			line-height:1.5em;
+			
+		}
+	}
+}

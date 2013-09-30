@@ -22,12 +22,28 @@ match($status) {
         log("--> Importing pages/home.ts in mappings.ts")
         @import pages/home.ts
       }
-      else() {
+	  with(/services/) {
+		log("--> Importing pages/services.ts in mappings.ts")
+		@import pages/services.ts
+	}
+	with(/bestemmingen/) {
+		log("--> Importing pages/bestemmingen.ts in mappings.ts")
+		@import pages/bestemmingen.ts
+	}
+	with(/klantenservice/) {
+		log("--> Importing pages/klantenservice.ts in mappings.ts")
+		@import pages/klantenservice.ts
+	}
+	with(/mijnarkefly/) {
+		log("--> Importing pages/mijnarkefly.ts in mappings.ts")
+		@import pages/mijnarkefly.ts
+	}
+	else() {
         log("--> No page match in mappings.ts")
       }
     }
   }
-
+	
   else() {
     # not 200 or 302 response status
     log("--> STATUS: " + $status + " assuming its an error code pages/error.ts")

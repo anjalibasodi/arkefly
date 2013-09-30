@@ -250,6 +250,7 @@
   rewrite_meta_refresh()
 }
 
+
 # Absolutize Items 
 @func XMLNode.absolutize_srcs() {
   # Absolutize IMG and SCRIPT SRCs
@@ -268,6 +269,7 @@
     match($rewriter_url) {
       not(/false/) {
         # Do nothing :: Use base tag value
+        $base_found = "true"
       }
       else() {
         $rewriter_url = $source_host
@@ -283,8 +285,12 @@
               prepend(concat("//", $rewriter_url))
             }
             else() {
-              # path-relative URL: add the host and the path
-              prepend(concat("//", $rewriter_url, $slash_path))
+              match($base_found) {
+                with(/false/) {
+                  # path-relative URL: add the host and the path
+                  prepend(concat("//", $rewriter_url, $slash_path))
+                }
+              }
             }
           }
         }
@@ -292,6 +298,8 @@
     }
   }
 }
+
+
 
 @func XMLNode.relocate_scripts() {
   $("/html/body/script") {

@@ -39,9 +39,9 @@ $sprites-light_gray_r-width: 71px;
 $sprites-light_gray_r-height: 36px;
 
 @mixin sprites-chevron-left() {
-  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px 0px;
-  width: 12px;
-  height: 18px;
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat -1px -54px;
+  width: 32px;
+  height: 32px;
 }
 
 @mixin sprites-chevron-right() {
@@ -81,15 +81,15 @@ $sprites-light_gray_r-height: 36px;
 }
 
 .sprites-chevron-left {
-  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px 0px;
-  width: 12px;
-  height: 18px;
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat -1px -54px;
+  width: 32px;
+  height: 32px;
 }
 
 .sprites-chevron-right {
-  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat 0px -19px;
-  width: 12px;
-  height: 18px;
+  background: url("/_moovweb_local_assets_/images/sprites.png") no-repeat -1px -21px;
+  width: 32px;
+  height: 32px;
 }
 
 .sprites-gray_minus {

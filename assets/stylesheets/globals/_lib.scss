@@ -11,6 +11,9 @@ $color1: #FFFFFF; // white
 $color2: #3500ED; // link blue 
 $color3: #2C2C2C; // text gray
 $color4: #F2F3F5; // header gradient gray
+$color5: #F5F5F5; // header gradient dark grey
+$color6: #F5D8B8; //dark peach
+$color7: #FAEFE3; //light peach
 
 $spacing: 10px;
 
@@ -18,6 +21,15 @@ $border_color1: #c1bfbf;
 $border1:       1px solid $border_color1;
 $border_color3: #999;
 $border3:       1px solid $border_color3;
+$border4:       1px solid $color5;
+
+//Page title styles
+@mixin pageTitle {
+	font-size:$h2_size;
+	font-weight:bold;
+	padding:0px 10px;
+	color:$color1;
+}
 
 //gray bar color
 @mixin grad1 {
@@ -25,11 +37,76 @@ $border3:       1px solid $border_color3;
   background-color: #eaeaea; /* Old browsers */
 }
 
+@mixin borderRadius {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+@mixin grad2 {
+	background-color: $color5;
+	
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color5));
+	
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(top, $color5, $color1);
+	
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(top, $color5, $color1);
+	
+	/* IE 10 */
+	background: -ms-linear-gradient(top, $color5, $color1);
+	
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(top, $color5, $color1);
+}
+
+@mixin grad3 {
+	background-color: $color5;
+	
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color6), to($color7));
+	
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(top, $color7, $color6);
+	
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(top, $color7, $color6);
+	
+	/* IE 10 */
+	background: -ms-linear-gradient(top, $color7, $color6);
+	
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(top, $color7, $color6);
+}
+
+// Menu (Orange) Gradient
+@mixin grad4 {
+	background-color: #FF8E01;
+	
+	/* Safari 4-5, Chrome 1-9 */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF6F00), to(#FF8E01));
+	
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(top, #FF8E01, #FF6F00);
+	
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(top, #FF8E01, #FF6F00);
+	
+	/* IE 10 */
+	background: -ms-linear-gradient(top, #FF8E01, #FF6F00);
+	
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(top, #FF8E01, #FF6F00);
+}
+
 // Bars and Accordions
 @mixin bar_inner_base {
   display: block;
   font-size: $h2_size;
-  font-weight: bold;
   line-height: 1.2;
   text-decoration: none;
   padding: 10px;
@@ -48,6 +125,7 @@ $border3:       1px solid $border_color3;
     color: $color2;
     padding: $spacing;
   }
+  
   > .arrow {
     @include sprites-chevron-right;
     position: absolute;
@@ -57,6 +135,8 @@ $border3:       1px solid $border_color3;
     padding: 0;
     opacity: 0.6;
   }
+  
+  
 }
 // accordion bar
 @mixin bar2 {
@@ -99,8 +179,54 @@ $border3:       1px solid $border_color3;
 
 .mw_bar1 {
   @include bar1;
+  font-size:13px;
 }
 
-.mw_bar2 {
-  @include bar2;
+// Home search form default styles
+@mixin formdefault {
+	background: #FAFAFA;
+	border:1px solid #CCCCCC;
+	overflow: hidden;
+	padding:5px 0px;
+}
+
+@mixin btnstyle {
+	color:#fff;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.25);
+	background-color:#363636;
+	background-image:-moz-linear-gradient(top,#444,#222);
+	background-image:-webkit-gradient(linear,0 0,0 100%,from(#444),to(#222));
+	background-image:-webkit-linear-gradient(top,#444,#222);
+	background-image:-o-linear-gradient(top,#444,#222);
+	background-image:linear-gradient(to bottom,#444,#222);
+	background-repeat:repeat-x;border-color:#222 #222 #000;
+	border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	color: #ccc;
+	font-weight: bold;
+	margin: 10px 0px;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+@mixin inputStyle {
+	@include borderRadius;
+	background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+	padding: 5px;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+	-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition:border linear .2s, box-shadow linear .2s;
+	-moz-transition:border linear .2s,box-shadow linear .2s;
+	-o-transition:border linear .2s,box-shadow linear .2s;
+	transition:border linear .2s,box-shadow linear .2s;
+	font-size:13px;
+}
+
+@mixin inputFocus {
+	border-color:rgba(82,168,236,0.8);
+	outline:0;outline:thin dotted \9;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+	-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6)
 }

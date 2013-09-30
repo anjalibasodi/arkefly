@@ -1,0 +1,229 @@
+$(".//section[@class='hp-services']") {
+			$("./div[@id='tabs']") {
+				attribute("data-ur-set", "tabs")
+				 #data-ur-tabs-component='button' data-ur-tab-id='first' data-ur-state='enabled
+				$("./div[@class='top']") {
+					
+					$("./ul/li[2]") {
+
+						$(".//div[@class='tab-middle']") {
+							attribute("data-ur-tabs-component","button")
+							attribute("data-ur-tab-id","second")
+							
+							move_to("/html/body//div[contains(@class, 'top')]", "after")
+
+							name("span")
+							
+						}
+					}
+					$("./ul/li[1]") {
+
+						$(".//div[@class='tab-middle']") {
+							attribute("data-ur-tabs-component","button")
+							attribute("data-ur-tab-id","first")
+							attribute("data-ur-state","enabled")
+							
+							move_to("/html/body//div[contains(@class, 'top')]", "after")
+
+							name("span")
+							
+						}
+					}
+				}
+				#data-ur-tabs-component='content' data-ur-tab-id='first' data-ur-state='enabled'
+				$("./div[@id='tabs-1']") {
+					attribute("data-ur-tabs-component","content")
+					attribute("data-ur-tab-id","first")
+					attribute("data-ur-state","enabled")
+							
+				}
+				$("./div[@id='tabs-2']") {
+					attribute("data-ur-tabs-component","content")
+					attribute("data-ur-tab-id","second")
+							
+				}
+				remove("./div[@class='top']")
+			}
+			
+			
+		}
+		
+		
+		/html/body/div[2]/ul/li[3]
+		/html/body/div[2]/ul/li[3]/a
+		
+		
+		
+		
+		
+		
+		
+$("./body") {
+	
+  # Add a class to the body for page-specific styling
+  add_class("_home")
+  
+	$("./div[@class='page-back']") {
+		remove(".//section[@class='marketing-banner-top']")
+		remove(".//section[@class='home-cco']")
+		$(".//section[@class='blockright']") {
+		
+		
+			$("./div[@id='marketing-carrousel']") {
+		
+				attribute("data-ur-set", "carousel")
+				attribute("data-ur-carousel-component", "view_container")
+				attribute("data-ur-id", "MyFirstCarousel")
+				
+				$("./div[@class='photo-bg']") {
+					attribute(" data-ur-carousel-component","scroll_container")
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ticketsale.jpg")
+						attribute("alt","1")
+					}
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/betaalbaar-usa.jpg")
+						attribute("alt","2")
+					}
+					insert_top("img"){
+						attribute("data-ur-carousel-component","item")
+						attribute("src","http://www.arkefly.nl/Content/NewMarketing/nl-NL/Images/homepage/marketing-banner/ervaar-antillen.jpg")
+						attribute("alt","3")
+					}
+				}
+				#insert_top("div","next") {
+				#	attribute(" data-ur-carousel-component","button")
+				#	attribute(" data-ur-carousel-button-type","next")
+				#}
+				#insert_top("div","prev") {
+				#	attribute(" data-ur-carousel-component","button")
+				#	attribute(" data-ur-carousel-button-type","prev")
+				#}
+				insert_bottom("span","-- count --") {
+					attribute(" data-ur-carousel-component","count")
+				}
+				insert_bottom("div",class:"mw_dots") {
+					attribute(" data-ur-carousel-component","dots")
+					insert_bottom("div") {
+						attribute(" data-ur-carousel-component","dot")
+						attribute(" data-ur-state","active")
+					}
+					insert_bottom("div") {
+						attribute(" data-ur-carousel-component","dot")
+						attribute(" data-ur-state","inactive")
+					}
+					insert_bottom("div") {
+						attribute(" data-ur-carousel-component","dot")
+						attribute(" data-ur-state","inactive")
+					}
+					
+				}
+			}
+			remove("./div[@class='top-offers']")
+
+		}
+		
+		$(".//section[@class='home-searchcontrol']") {
+			attribute("data-ur-set", "toggler")
+
+			$("./div[@class='top']") {
+				attribute(" data-ur-toggler-component","button")
+				$(".//h3"){
+					add_class("mw_bar2")
+					name("h1")
+				}
+			}
+			$("./div[@class='middle']"){
+				attribute("data-ur-toggler-component","content")
+			}
+		}
+		
+		remove(".//section[@class='hp-services']")
+		remove(".//section[@class='home-destinations']")
+		remove(".//section[@class='home-newsletter']")
+		$("./div[@class='usa-travelers']"){
+			move_to("/html/body/footer/div[@class='ftr-links']")
+			name("a")
+			inner("US Travellers")
+		}
+		
+	}
+	
+
+  }
+
+  html.ts
+  
+  
+  $("/html") {
+  #rewrite_links()
+  #absolutize_srcs()
+
+    
+  # Add the mobile meta tags 
+  #clean_mobile_meta_tags()
+
+    
+  # Needed to begin mobilizing
+  
+  remove_html_comments()
+
+  # Late load all the images on the site
+  # lateload()
+  
+  #	remove_all_styles()
+
+
+  add_assets()
+
+  @import sections/header.ts
+  @import sections/footer.ts
+
+  @import mappings.ts
+}
+
+
+
+@func XMLNode.absolutize_srcs() {
+  # Absolutize IMG and SCRIPT SRCs
+  var("slash_path") {
+    # the 'slash_path' is the path of this page without anything following it's last slash
+    set($path)
+    replace(/[^\/]+$/, "")
+    # turn empty string into a single slash because this is the only thing separating the host from the path relative path
+    replace(/^$/, "/")
+  }
+  # Find images and scripts that link to an external host
+  $(".//img|.//script[@src]") {
+    # GOTCHAS :: Watch out for captcha images, they most likely should
+    # not be absolutized
+    $src = fetch("./@src")
+    match($rewriter_url) {
+      not(/false/) {
+        # Do nothing :: Use base tag value
+      }
+      else() {
+        $rewriter_url = $source_host
+      }
+    }
+    # skip URLs which: are empty, have a host (//www.example.com), or have a protocol (http:// or mailto:)
+    match($src, /\A(?![a-z]+\:)(?!\/\/)(?!\z)/) {
+      attribute("src") {
+        value() {
+          match($src) {
+            with(/^\//) {
+              # host-relative URL: just add the host
+              prepend(concat("//", $rewriter_url))
+            }
+            else() {
+              # path-relative URL: add the host and the path
+              prepend(concat("//", $rewriter_url, $slash_path))
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+// Every page should have a class on the body
+// Scope that in each file at the start
+.my-brand {
+	padding: 5px 0px;
+	.cnt-login-plus-register {
+		input {
+			@include inputStyle;
+			padding:6px 2%;
+			font-size:13px;
+			width: 96%;
+			margin:5px 0px;
+			&:focus {
+				@include inputFocus;
+			}
+		}
+		.block-lastnamelogin {
+			padding: 0px 10px;
+		}
+	}
+	
+	.btn-blue span {
+		@include btnstyle;
+		@include borderRadius;
+		display:inline-block;
+	}
+	
+	.cnt-mybrand:last-of-type {
+		padding:10px;
+		border-top:1px solid #ccc;
+		span.sbt {
+			padding:10px 0px 5px 0px;
+			font-weight: bold;
+			font-size:13px;
+			display:block;
+		}
+		article {
+			padding:10px 0px 10px 0px;
+			border-bottom:1px dotted #ccc;
+			&:last-of-type {
+				border: none;
+			}
+			h4 {
+				padding:5px 0px;
+				font-weight: bold;
+				color:#346DAD;
+			}
+			p {
+				line-height:18px;
+			}
+			img {
+				border:3px solid #fff;
+				width:98%;
+				-webkit-box-shadow: 0px 0px 1px #7C7C7C;
+				box-shadow: 0px 0px 1px #7C7C7C;
+				margin:5px 0px 7px 0px;
+			}
+		}
+	}
+}

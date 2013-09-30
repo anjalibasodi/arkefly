@@ -1,5 +1,5 @@
 // Reset file for standardizing the page
-// @import "globals/_reset";
+ @import "globals/_reset";
 @import "globals/_sprites";
 
 // Base file contains all the global styles
@@ -18,3 +18,7 @@
 
 // Pages
 @import "pages/_home";
+@import "pages/_services";
+@import "pages/_bestemmingen";
+@import "pages/_klantenservice";
+@import "pages/_mijnarkefly";

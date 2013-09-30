@@ -1,3 +1,28 @@
-footer._footer {
-
+footer {
+	padding:10px;
+	@include grad2;
+	
+	div.phone-block {
+		margin:10px 0 0 0;
+		padding:15px 0 5px 0px;
+		border-top:1px solid $border_color1;
+		font-weight:bold;
+		.phonenumber {
+			background: image-url("phone.png") no-repeat left center;
+			padding: 0 0 0 12px;
+		}
+	}
+	
+	.ftr-links {
+		text-align: center;
+		a {
+			padding: 5px;
+			display: inline-block;
+		}
+	}
+	.cost {
+		font-weight: normal;
+		font-size: 11px;
+	}
 }
+

@@ -1,0 +1,52 @@
+.pics{ 
+	
+	a{
+		display:block;
+		background: $color7;
+		border-bottom: 1px solid #B7BABD;
+	}
+}
+
+// Styles for Responsive Banner
+#mySwipe div {
+	display:block;
+	padding:0px 0px;
+}
+
+.swipe {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	.swipe-wrap {
+		overflow: hidden;
+		position: relative;
+		& > div {
+		  float:left;
+		  width:100%;
+		  position: relative;
+		}
+	}
+}
+
+.middle-large li{
+	display : block;
+	border-bottom: 1px solid #B7BABD;
+	padding: 5px 0px;
+	margin: 0px;
+}
+
+.middle-large ul{
+	margin: 0px;
+	padding-left: 20px; 
+	padding-right: 20px; 
+}
+
+.middle-large h3{
+	display : block;
+	background: #DCEDFA;
+	padding: 10px 10px;
+} 
+
+.serviceContainer h2{
+	font-weight: bold;
+}
