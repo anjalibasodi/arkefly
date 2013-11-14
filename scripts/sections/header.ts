@@ -3,6 +3,7 @@ $('./body') {
 	
 	$("./header") {
 		add_class("mw_header")
+		add_class("dummy")
 	}
 	remove(".//div[@class='vliegtickets-header']")
 	
